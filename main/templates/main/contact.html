@@ -3,19 +3,8 @@
 
 <h2>Contact</h2>
 <form action="{% url 'main:contact' %}" method="post">
-{% csrf_token %}
-	<div>
-		<label for="subject">Subject:</label><br />
-		<input type="text" name="subject" id="subject" placeholder="SUBJECT" />
-	</div>
-	<div>
-		<label for="body">Email Body:</label><br />
-		<textarea name="body" id="body" placeholder="EMAIL BODY" ></textarea>
-	</div>
-	<div>
-		<label for="email">Your Email:</label><br />
-		<input type="email" name="email" id="email" placeholder="your_email@example.com" />
-	</div>
+  {% csrf_token %}
+  {{ form.as_p }}
 	<div><input type="submit" value="Submit" /></div>
 </form>
 
