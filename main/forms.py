@@ -8,6 +8,15 @@ class ContactForm(forms.Form):
     sender = forms.EmailField()
 
     def send_email(self):
-        # Write some code for sending an email
-        pass
+				"""
+				basic send_mail usage
+				"""
+				send_mail(
+					subject,
+					message,
+					'admin@example.com',
+					[sender],
+					fail_silently=False,
+				)
+				pass
 
