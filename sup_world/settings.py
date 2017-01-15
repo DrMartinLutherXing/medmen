@@ -118,7 +118,7 @@ USE_TZ = True
 # Email
 # https://docs.djangoproject.com/en/1.10/topics/email/
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = '/tmp/emails/' # change this to a proper location
+EMAIL_FILE_PATH = 'emails/'
 
 
 # Static files (CSS, JavaScript, Images)
