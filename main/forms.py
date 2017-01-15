@@ -1,7 +1,7 @@
 from django import forms
 from django.core.mail import send_mail
 
-from .models import Contacts
+from .models import Contacts, Customers
 
 class ContactForm(forms.Form):
     subject = forms.CharField(max_length=75)
@@ -16,6 +16,7 @@ class ContactForm(forms.Form):
 				     subject=self.subject,
 						 message=self.message,
 						 sender=self.sender).save()
+				Customers(email=self.sender).save()
 				send_mail(
 					self.subject,
 					self.message,
@@ -24,3 +25,7 @@ class ContactForm(forms.Form):
 				)
 				pass
 
+class CustomerForm(forms.ModelForm):
+    class Meta:
+        model = Customers
+        exclude = []
