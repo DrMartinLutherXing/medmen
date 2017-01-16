@@ -3,10 +3,10 @@ from django.core.mail import send_mail
 
 from .models import Contacts, Customers
 
-class ContactForm(forms.Form):
-    subject = forms.CharField(max_length=75)
-    message = forms.CharField(widget=forms.Textarea)
-    sender = forms.EmailField()
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contacts
+        exclude = []
 
     def send_email(self):
 				"""
@@ -20,8 +20,8 @@ class ContactForm(forms.Form):
 				send_mail(
 					self.subject,
 					self.message,
-					'kieran.farrar@gmail.com',
-					[self.sender],
+					self.sender,
+					['kieran.farrar@gmail.com'],
 				)
 				pass
 
