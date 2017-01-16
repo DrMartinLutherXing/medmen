@@ -6,7 +6,7 @@ from django.db import models
 
 class Contacts(models.Model):
     subject = models.CharField(max_length=75)
-    message = models.CharField(max_length=200)
+    message = models.TextField(max_length=200)
     sender = models.EmailField()
 
 class Customers(models.Model):
